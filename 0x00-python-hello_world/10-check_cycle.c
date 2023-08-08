@@ -7,9 +7,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *ptr;
-
-	if (list == NULL)
-		return (0);
+ 
 	ptr = list->next;
 	while (ptr)
 	{
@@ -17,7 +15,7 @@ int check_cycle(listint_t *list)
 		{
 			return (1);
 		}
-		else if (ptr->next == NULL)
+		if (ptr->next == NULL)
 		{
 			return (0);
 		}
