@@ -6,22 +6,15 @@
 */
 int check_cycle(listint_t *list)
 {
+	int flag = 0;
 	listint_t *ptr;
 
-	if (list == NULL)
-		return (0);
 	ptr = list->next;
 	while (ptr)
 	{
-		if (ptr->next == list->next)
-		{
-			return (1);
-		}
-		if (ptr->next == NULL)
-		{
-			return (0);
-		}
 		ptr = ptr->next;
+		if (ptr == list->next)
+			return (1);
 	}
 	return (0);
 }
