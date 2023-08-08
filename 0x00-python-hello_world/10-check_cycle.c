@@ -6,7 +6,6 @@
 */
 int check_cycle(listint_t *list)
 {
-	int flag = 0;
 	listint_t *ptr;
 
 	ptr = list->next;
