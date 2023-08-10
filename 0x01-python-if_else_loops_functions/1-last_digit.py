@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""print the last digit of the number stored in the variable number."""
 import random
 number = random.randint(-10000, 10000)
 lastUnit = abs(number) % 10
