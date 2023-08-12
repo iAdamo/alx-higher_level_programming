@@ -8,3 +8,4 @@ def uppercase(str):
         if deca in range(97, 123):
             deca = chr(deca - 32)
         print("{}".format(deca), end='')
+    print("")
