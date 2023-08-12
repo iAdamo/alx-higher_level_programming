@@ -7,5 +7,5 @@ def uppercase(str):
         deca = ord(each_chr)
         if deca in range(97, 123):
             deca -= 32
-        print("{:c}".format(deca), end='')
-    print("{}".format(""))
+        print("{}".format(chr(deca)), end='')
+    print("")
