@@ -1,29 +1,23 @@
 #!/usr/bin/python3
+from sys import argv
+from calculator_1 import add, sub, mul, div
+if __name__ != "__main__":
+    exit()
 
-if __name__ == "__main__":
-    from calculator_1 import add, sub, mul, div
-    from sys import argv
+argc = len(argv) - 1
+if argc != 3:
+    print("Usage: {:s} <a> <operator> <b>".format(argv[0]))
+    exit(1)
+elif argv[2] == '+':
+    result = add(int(argv[1]), int(argv[3]))
+elif argv[2] == '-':
+    result = sub(int(argv[1]), int(argv[3]))
+elif argv[2] == '*':
+    result = mul(int(argv[1]), int(argv[3]))
+elif argv[2] == '/':
+    result = div(int(argv[1]), int(argv[3]))
+else:
+    print("Unknown operator. Available operators: +, -, * and /")
+    exit(1)
 
-    if len(argv) != 4:
-        print(f"Usage: {argv[0]} <a> <operator> <b>")
-        exit(1)
-    operator = "+-*/"
-    flag = 0
-    for each_op in operator:
-        if each_op == argv[2]:
-            flag = 1
-    if flag == 0:
-        print("Unknown operator. Available operators: +, -, * and / ")
-        exit(1)
-    a = int(argv[1])
-    b = int(argv[3])
-
-    match argv[2]:
-        case "+":
-            print(f"{a} {argv[2]} {b} = {add(a, b)}")
-        case "-":
-            print(f"{a} {argv[2]} {b} = {sub(a, b)}")
-        case "*":
-            print(f"{a} {argv[2]} {b} = {mul(a, b)}")
-        case "/":
-            print(f"{a} {argv[2]} {b} = {div(a, b)}") 
+print("{:s} {:s} {:s} = {:d}".format(argv[1], argv[2], argv[3], result))
