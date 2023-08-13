@@ -4,10 +4,10 @@ if __name__ == "__main__":
 
     if len(argv) == 1:
         print(f"{len(argv) - 1} arguments.")
-    if len(argv) > 2:
+    elif len(argv) == 2:
+        print(f"{len(argv) - 1} argument:")
+        print(f"{1}: {argv[1]}")
+    elif len(argv) > 2:
         print(f"{len(argv) - 1} arguments:")
         for i in range(1, len(argv)):
             print(f"{i}: {argv[i]}")
-    elif len(argv) == 2:
-        print(f"{len(argv) - 1} argument:")
-        print(f"{1}: {argv[1]} ")
