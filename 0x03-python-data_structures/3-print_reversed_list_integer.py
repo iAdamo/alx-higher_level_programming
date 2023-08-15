@@ -14,4 +14,5 @@ def print_reversed_list_integer(my_list=[]):
     """
     my_list.reverse()
     for each_int in my_list:
-        print("{:d}".format(each_int))
+        if isinstance(each_int, int):
+            print("{:d}".format(each_int))
