@@ -3,7 +3,7 @@ if __name__ != "__main__":
     exit
 
 
-def replace_in_list(my_list, idx, element):
+def new_in_list(my_list, idx, element):
     """function that replaces an element of a list at a specific position
 
         Args:
@@ -11,10 +11,11 @@ def replace_in_list(my_list, idx, element):
         idx: index
         element: element
 
-        Return: my_list
+        Return: a new list
     """
     if idx < 0 or idx >= len(my_list):
         return my_list
-    my_list.pop(idx)
-    my_list.insert(idx, element)
-    return my_list
+    myListCopy = my_list.copy()
+    myListCopy.pop(idx)
+    myListCopy.insert(idx, element)
+    return myListCopy
