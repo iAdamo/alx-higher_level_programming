@@ -13,7 +13,7 @@ def print_matrix_integer(matrix=[[]]):
         None
     """
     if matrix == [[]]:
-        print("".format())
+        print("{}".format())
     else:
         n = len(matrix)
         for each_item in matrix:
