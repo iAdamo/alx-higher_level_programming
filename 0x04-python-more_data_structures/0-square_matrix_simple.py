@@ -8,6 +8,5 @@ def square_matrix_simple(matrix=[]):
         return None
     result = []
     for each_item in matrix:
-        squares = map(lambda x: x ** 2, each_item)
-        result.append(list(squares))
+        result.append([each_int ** 2 for each_int in each_item])
     return result
