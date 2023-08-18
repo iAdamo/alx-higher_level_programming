@@ -16,8 +16,8 @@ def search_replace(my_list, search, replace):
         A new list
     """
     if len(my_list) == 0:
-        return None
-    if 2 not in my_list:
+        return []
+    if search not in my_list:
         return my_list
     new_list = my_list.copy()
     for i in range(len(my_list)):
