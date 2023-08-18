@@ -13,9 +13,13 @@ def uniq_add(my_list=[]):
         Return: addition of unique ints
     """
     if len(my_list) == 0:
-        return []
+        return 0
     my_list = list(set(my_list))
     add = 0
     for each_int in my_list:
         add += each_int
     return (add)
+
+my_list = []
+result = uniq_add(my_list)
+print("Result: {:d}".format(result))
