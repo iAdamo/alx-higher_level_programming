@@ -19,7 +19,3 @@ def uniq_add(my_list=[]):
     for each_int in my_list:
         add += each_int
     return (add)
-
-my_list = []
-result = uniq_add(my_list)
-print("Result: {:d}".format(result))
