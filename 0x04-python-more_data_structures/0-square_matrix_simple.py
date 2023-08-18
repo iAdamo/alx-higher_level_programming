@@ -6,14 +6,8 @@ if __name__ != "__main__":
 def square_matrix_simple(matrix=[]):
     if len(matrix) == 0:
         return None
-
-
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-new_matrix = square_matrix_simple(matrix)
-print(new_matrix)
-print(matrix)
+    result = []
+    for each_item in matrix:
+        squares = map(lambda x: x ** 2, each_item)
+        result.append(list(squares))
+    return result
