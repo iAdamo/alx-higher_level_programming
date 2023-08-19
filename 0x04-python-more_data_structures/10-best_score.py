@@ -2,9 +2,7 @@
 
 
 def best_score(a_dictionary):
-    if len(a_dictionary) == 0:
-        return ({})
-    if a_dictionary is None:
+    if a_dictionary is None or len(a_dictionary) == 0:
         return None
     my_value = sorted(a_dictionary.values())
     idx = len(my_value) - 1
