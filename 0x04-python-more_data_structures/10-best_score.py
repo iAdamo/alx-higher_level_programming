@@ -2,6 +2,8 @@
 
 
 def best_score(a_dictionary):
+    if len(a_dictionary) == 0:
+        return ({})
     if a_dictionary is None:
         return None
     my_value = sorted(a_dictionary.values())
