@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-if __name__ != "__main__":
-    exit
 
 
 def search_replace(my_list, search, replace):
@@ -19,8 +17,4 @@ def search_replace(my_list, search, replace):
         return []
     if search not in my_list:
         return my_list
-    new_list = my_list.copy()
-    for i in range(len(my_list)):
-        if new_list[i] == search:
-            new_list[i] = replace
-    return new_list
+    return ([item if item != search else replace for item in my_list])

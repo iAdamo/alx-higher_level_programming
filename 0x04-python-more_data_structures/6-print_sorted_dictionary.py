@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-if __name__ != "__main__":
-    exit
 
 
 def print_sorted_dictionary(a_dictionary):

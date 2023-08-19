@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-if __name__ != "__main__":
-    exit
 
 
 def square_matrix_simple(matrix=[]):

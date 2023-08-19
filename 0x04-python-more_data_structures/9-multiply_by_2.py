@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-if __name__ != "__main__":
-    exit
 
 
 def multiply_by_2(a_dictionary):
