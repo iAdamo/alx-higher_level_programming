@@ -4,7 +4,7 @@ if __name__ != "__main__":
 
 
 def update_dictionary(a_dictionary, key, value):
-    if key == None or value == None:
+    if key is None or value is None:
         return a_dictionary
     a_dictionary[key] = value
     return a_dictionary
