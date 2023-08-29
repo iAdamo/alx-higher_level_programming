@@ -13,9 +13,5 @@ def safe_print_integer(value):
     try:
         print("{:d}".format(value))
         return (True)
-    except (TypeError):
-        for each_item in value:
-            print("{:d}".format(each_item))
-        return (True)
-    except (ValueError):
+    except (TypeError, ValueError):
         return (False)
