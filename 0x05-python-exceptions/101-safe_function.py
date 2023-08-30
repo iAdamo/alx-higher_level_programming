@@ -9,19 +9,8 @@ def safe_function(fct, *args):
     Return:
         result of the function
     """
+    from sys import stderr
     try:
-        from sys import stderr
-        try:
-            return (fct(args[0], args[1]))
-        except ZeroDivisionError as zerr:
-            stderr.write("Exception: {}\n".format(zerr))
-            return (None)
-        except TypeError as terr:
-            stderr.write("Exception: {}\n".format(terr))
-            return (None)
-        except IndexError as ierr:
-            stderr.write("Exception: {}\n".format(ierr))
-            return (None)
-    except ImportError as imerr:
-        stderr.write("Exception: {}\n".format(imerr))
-        return (None)
+        return (fct(*args))
+    except Exception as err:
+        print("Exception: {}".format(err), file=stderr)
