@@ -48,8 +48,8 @@ class Square:
         """my_print - prints in stdout the square with the character #"""
         a = self.__position[0]
         b = self.__position[1]
-        if b > 0:
-            print("" * b)
+        for _ in range(b):
+            print()
         for _ in range(self.__size):
             print(" " * a + '#' * self.__size)
 
