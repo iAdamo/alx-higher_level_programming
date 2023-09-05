@@ -1,0 +1,125 @@
+The 2-matrix_divided module
+===========================
+
+Using matrix_divided
+---------------------
+
+-------------------
+Importing function:
+-------------------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+----------------
+Defining matrix:
+----------------
+>>> matrix = [\
+...     [1, 2, 3],
+...     [4, 5, 6]
+... ]
+
+--------------------------------
+checking correct number of args:
+--------------------------------
+
+>>> matrix_divided(matrix, 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+>>> matrix_divided(matrix, 5)
+[[0.2, 0.4, 0.6], [0.8, 1.0, 1.2]]
+
+>>> matrix_divided(matrix, -5)
+[[-0.2, -0.4, -0.6], [-0.8, -1.0, -1.2]]
+
+----------------
+checking Floats:
+----------------
+>>> matrix_divided(matrix, .5)
+[[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
+
+>>> matrix_divided(matrix, 0.5)
+[[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
+
+>>> matrix_divided(matrix, float('inf'))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> matrix_divided(matrix, float('nan'))
+[[nan, nan, nan], [nan, nan, nan]]
+
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
+
+-----------------------------------
+Checking amount of arguments passed:
+-----------------------------------
+>>> matrix_divided()
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+>>> matrix_divided(None)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matrix_divided(matrix)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matrix_divided(30)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matrix_divided([[]], 15, 100)
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+--------------------------
+checking incorrect input;
+--------------------------	
+>>> matrix_divided(30, 30)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided(10.5, 4)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided(None, 4)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+---------------------------------------------
+checking non int/ float elements in matrix:
+---------------------------------------------
+>>> matrix[1] = [float('nan'), 8, 25]
+
+>>> matrix_divided(matrix, 10)
+[[0.1, 0.2, 0.3], [nan, 0.8, 2.5]]
+
+>>> matrix[1] = [float('inf'), 8, 25]
+
+>>> matrix_divided(matrix, 10)
+[[0.1, 0.2, 0.3], [inf, 0.8, 2.5]]
+
+>>> matrix[1] = ['none43ert', 8, 25]
+>>> matrix_divided(matrix, 10)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+----------------------
+checking unequal rows:
+----------------------
+>>> matrix[1] = [8, 25]
+
+>>> matrix_divided(matrix, 10)
+Traceback (most recent call last):
+  ...
+TypeError: Each row of the matrix must have the same size

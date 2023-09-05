@@ -1,0 +1,94 @@
+The text_indentation Module
+===========================
+
+Using text_indentation function
+-------------------------------
+
+Importing modules:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing docs:
+    >>> doc_1 = __import__('5-text_indentation').__doc__
+    >>> print(len(doc_1) > 1)
+    True
+
+    >>> doc_2 = __import__('5-text_indentation').text_indentation.__doc__
+    >>> print(len(doc_2) > 1)
+    True
+
+Testing number of arguments:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("text", "string")
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+
+Checking invalid input:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(10)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(float('nan'))
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Testing the correct output:
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing "
+    ... "elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas "
+    ... "commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, "
+    ... "sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri "
+    ... "nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est "
+    ... "moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde "
+    ... "sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid "
+    ... "voles, postea. Quae animi affectio suum cuique tribuens atque hanc, "
+    ... "quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas "
+    ... "videres") # doctest: +NORMALIZE_WHITESPACE
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    
+    Quonam modo?
+    
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    
+    Non autem hoc:
+    
+    igitur ne illud quidem.
+    
+    Fortasse id optimum, sed ubi illud:
+    
+    Plus semper voluptatis?
+    
+    Teneo, inquit, finem illi videri nihil dolere.
+    
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    
+    Si id dicis, vicimus.
+    
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    
+    Sin aliud quid voles, postea.
+    
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+    >>> text_indentation("\n\n\nTesting three new lines.")
+    Testing three new lines.
+
+    >>> text_indentation("printing a new-line!:\nPrinted.")
+    printing a new-line!:

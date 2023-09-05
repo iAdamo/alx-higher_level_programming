@@ -1,0 +1,78 @@
+The 4-print_square Module
+=======================
+
+Using print_square function
+---------------------------
+
+---------------------
+Importing the module:
+---------------------
+>>> print_square = __import__('4-print_square').print_square
+
+-----------------------
+Testing documentation:
+-----------------------
+
+-----------------------------
+checking number of arguments:
+-----------------------------
+# Test case: Valid input with size 4
+>>> print_square(4)
+####
+####
+####
+####
+
+# Test case: Valid input with size 10
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+-----------------------------
+checking incorrect arguments:
+-----------------------------
+# Test case: Invalid input with size 0
+>>> print_square(0)
+
+# Test case: Valid input with size 1
+>>> print_square(1)
+#
+
+# Test case: Invalid input with a float size (4.5)
+>>> print_square(4.5)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+# Test case: Invalid input with 'all' as the size
+>>> print_square(all)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+# Test case: Invalid input with 'None' as the size
+>>> print_square(None)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+# Test case: Invalid input with a string as the size ("INTEGER")
+>>> print_square("INTEGER")
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+# Test case: Invalid input with a negative size (-10)
+>>> print_square(-10)
+Traceback (most recent call last):
+  ...
+ValueError: size must be >= 0
+
