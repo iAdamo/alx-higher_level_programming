@@ -9,7 +9,7 @@ class Rectangle():
     """Rectangle - mpty class Rectangle that defines a rectangle"""
     def __init__(self, width=0, height=0):
         self.__width = width
-        self.__heigth = height
+        self.__height = height
 
     @property
     def width(self):
