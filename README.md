@@ -13,3 +13,4 @@
 - [0x05. Python - Exceptions](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x05-python-exceptions)
 - [0x06. Python - Classes and Objects](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x06-python-classes)
 - [0x07. Python - Test-driven development](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x07-python-test_driven_development)
+- [0x08. Python - More Classes and Objects](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x08-python-more_classes)
