@@ -13,8 +13,10 @@ class Rectangle():
 
     def __init__(self, width=0, height=0):
         """__init__: a setup or initialization method for objects"""
-        self.__width = width  # private instance attribute
-        self.__height = height
+        self.__width = 0  # private instance attribute
+        self.__height = 0  # private instance attribute
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property

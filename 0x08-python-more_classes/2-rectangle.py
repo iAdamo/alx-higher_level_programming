@@ -8,8 +8,10 @@
 class Rectangle():
     """Rectangle - empty class Rectangle that defines a rectangle"""
     def __init__(self, width=0, height=0):
-        self.__width = width
-        self.__height = height
+        self.__width = 0  # private instance attribute
+        self.__height = 0  # private instance attribute
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
