@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 
 """
-0-rectangle.py module - contains Rectangle() class
+0-rectangle module - contains Rectangle() class
 """
 
 
 class Rectangle():
-    """Rectangle - mpty class Rectangle that defines a rectangle"""
+    """Rectangle - empty class Rectangle that defines a rectangle"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
 
     @property
     def width(self):
-        """getter peoperty width - returns private instance __width"""
+        """getter property width - returns private instance __width"""
         return self.__width
 
     @width.setter
@@ -28,14 +28,14 @@ class Rectangle():
 
     @property
     def height(self):
-        """getter peoperty height - returns private instance __height"""
+        """getter property height - returns private instance __height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """setter property width - sets value to
+        """setter property height - sets value to
         private instance attribute __height"""
         if not isinstance(value, int):
-            raise TypeError('width must be an integer')
+            raise TypeError('height must be an integer')
         if value < 0:
-            raise ValueError('width must be >= 0')
+            raise ValueError('height must be >= 0')

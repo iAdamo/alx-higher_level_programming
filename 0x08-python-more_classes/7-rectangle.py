@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-0-rectangle module - contains Rectangle() classi
+0-rectangle module - contains Rectangle() class
 """
 
 
@@ -9,16 +9,17 @@ class Rectangle():
     """Rectangle - empty class Rectangle that defines a rectangle"""
 
     number_of_instances = 0  # public class attribute
+    print_symbol = '#'  # public class attribute
 
     def __init__(self, width=0, height=0):
         """__init__: a setup or initialization method for objects"""
-        self.__width = width
+        self.__width = width  # private instance attribute
         self.__height = height
         Rectangle.number_of_instances += 1
 
     @property
     def width(self):
-        """getter property width - returns private instance __width"""
+        """getter peoperty width - returns private instance __width"""
         return self.__width
 
     @width.setter
@@ -33,17 +34,17 @@ class Rectangle():
 
     @property
     def height(self):
-        """getter property height - returns private instance __height"""
+        """getter peoperty height - returns private instance __height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """setter property height - sets value to
+        """setter property width - sets value to
         private instance attribute __height"""
         if not isinstance(value, int):
-            raise TypeError('height must be an integer')
+            raise TypeError('width must be an integer')
         if value < 0:
-            raise ValueError('height must be >= 0')
+            raise ValueError('width must be >= 0')
         self.__height = value
 
     def area(self):
@@ -60,8 +61,10 @@ class Rectangle():
     def __str__(self):
         """__str__: instance method that return an informal string
         representation of an instance"""
-        rt = [['#' for _ in range(self.__width)] for _ in range(self.__height)]
-        return '\n'.join([''.join(i) for i in rt])
+        rect = str()
+        for _ in range(self.__height):
+            rect += str(self.print_symbol) * self.__width + '\n'
+        return rect[:-1]
 
     def __repr__(self):
         """__repr__: instance method that returns a formal string
