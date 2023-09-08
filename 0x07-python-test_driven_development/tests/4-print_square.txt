@@ -12,6 +12,13 @@ Importing the module:
 -----------------------
 Testing documentation:
 -----------------------
+>>> doc_1 = __import__('4-print_square').print_square.__doc__
+>>> print(len(doc_1) > 1)
+True
+
+>>> doc_2 = __import__('4-print_square').print_square.__doc__
+>>> print(len(doc_2) > 1)
+True
 
 -----------------------------
 checking number of arguments:
