@@ -8,7 +8,7 @@ Remove the pipeline to see full details
 """
 
 
-class Mylist(list):
+class MyList(list):
     """Mylist: A class that inherits from a builtin class (list)"""
     def print_sorted(self):
         """print_sorted: prints a sorted list in ascending order

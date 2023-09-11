@@ -6,30 +6,32 @@ Using my_list function
 
 Importing the function
 ----------------------
->>> Mylist = __import__('1-my_list').Mylist
+>>> MyList = __import__('1-my_list').MyList
 
 Test for module, function and Class documentation
 -------------------------------------------------
 >>> doc1 = __import__("1-my_list").__doc__
 >>> print(len(doc1) > 1)
 True
->>> doc2 = __import__("1-my_list").Mylist.__doc__
+>>> doc2 = __import__("1-my_list").MyList.__doc__
 >>> print(len(doc2) > 1)
 True
->>> doc3 = __import__("1-my_list").Mylist.print_sorted.__doc__
+>>> doc3 = __import__("1-my_list").MyList.print_sorted.__doc__
 >>> print(len(doc3) > 1)
 True
 
-
->>> my_list = Mylist()
->>> my_list.append(5)
->>> my_list.append(4)
->>> my_list.append(3)
->>> my_list.append(2)
+>>> my_list = MyList()
 >>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
 >>> print(my_list)
-[5, 4, 3, 2, 1]
+[1, 4, 2, 3, 5]
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
 >>> print(my_list)
-[5, 4, 3, 2, 1]
+[1, 4, 2, 3, 5]
+
+>>> print(list)
+<class 'list'>
