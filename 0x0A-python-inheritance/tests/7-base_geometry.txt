@@ -1,0 +1,48 @@
+The 7-base_geometry
+=====================
+
+Using BaseGeometry class
+===========================
+
+Importing the function
+----------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test for module, function and class documentation
+-------------------------------------------------
+>>> doc1 = __import__("7-base_geometry").__doc__
+>>> print(len(doc1) > 1)
+True
+>>> doc2 = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> print(len(doc2) > 1)
+True
+>>> doc3 = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> print(len(doc3) > 1)
+True
+>>> doc4 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> print(len(doc4) > 1)
+True
+
+>>> bg = BaseGeometry()
+>>>
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>>
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] name must be an integer
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] age must be greater than 0
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] distance must be greater than 0
