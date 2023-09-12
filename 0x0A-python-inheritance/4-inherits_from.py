@@ -13,7 +13,7 @@ def inherits_from(obj, a_class):
     the specified class; otherwise False
 
     Args:
-        obj: unknown object
+        obj: unknown object (use type() to check for object type)
         a_class: class object
     """
-    return type(obj) is not a_class
+    return type(obj) is not a_class and issubclass(type(obj), a_class)
