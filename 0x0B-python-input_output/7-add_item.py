@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
 7-add_item module
-save_to_json_file function from 5-save_to_json_file
-load_from_json_file function from 6-load_from_json_file
-argv function from sys module
+save_to_json_file function; 5-save_to_json_file
+load_from_json_file function; 6-load_from_json_file
+argv function; sys module
 """
 from sys import argv
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
