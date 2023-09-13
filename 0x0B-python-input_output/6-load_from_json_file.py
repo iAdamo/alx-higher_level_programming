@@ -17,4 +17,4 @@ def load_from_json_file(filename):
         a deserialized output
     """
     with open(filename, 'r', encoding='utf-8') as out:
-        return(json.load(out))
+        return (json.load(out))
