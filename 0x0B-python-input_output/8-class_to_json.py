@@ -3,7 +3,6 @@
 This it the 8-class_to_json module
 It supplies class_to_json function
 """
-import json
 
 
 def class_to_json(obj):
