@@ -11,20 +11,20 @@ command line args are made into list
 load_from_json_file: list are saved back into the file by serializing them
 """
 from sys import argv
-from os import path.exists
+from os.path import exists
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-lists = []
+
+filename = 'add_item.json'
 if len(argv) > 1:
-    if not path.exists('add_item.json'):
-        save_to_json_file(lists, 'add_item.json')
+    if not exists(filename):
+        save_to_json_file([], filename)
 
-    lists = load_from_json_file('add_item.json')
+    lists = load_from_json_file(filename)
 
-    for i in range(1, len(argv)):
-        lists.append(argv[i])
+    lists.extend(argv[1:])
 
-    save_to_json_file(lists, 'add_item.json')
+    save_to_json_file(lists, filename)
 else:
-    save_to_json_file(lists, 'add_item.json')
+    save_to_json_file([], filename)
