@@ -54,7 +54,7 @@ class Base:
             cls: The class (automatically provided by Python).
             list_objs (list): A list of objects to be saved to a file.
         """
-        
+
         filename = cls.__name__ + ".json"
         with open(filename, 'w', encoding='utf-8') as out:
             if list_objs is None:
