@@ -1,45 +1,82 @@
 #!/usr/bin/python3
 
+"""
+Module for a unittest subclass for testing 'Base' class
+- a class which will be the base of all classes in this project
+"""
+
 import unittest
-import inspect
-import importlib
+from models.base import Base
 
-# Import your module dynamically
-module = importlib.import_module('models.base')
 
-class TestDocstrings(unittest.TestCase):
+class TestBase(unittest.TestCase):
+    """
+    A class to test 'Base' class
+    """
 
-    def test_module_docstring(self):
+    def test_empty_base(self):
         """
-        Test the docstring for the module (models.base).
+        Test empty 'Base' class multiple times
         """
-        self.assertIsNotNone(module.__doc__, "Module docstring is missing.")
-        self.assertNotEqual(len(module.__doc__.strip()), 0, "Module docstring is empty.")
+        test1 = Base()
+        self.assertEqual(test1.id, 1)
 
-    def test_class_docstring(self):
+        test2 = Base()
+        self.assertEqual(test2.id, 2)
+
+        test3 = Base()
+        self.assertEqual(test3.id, 3)
+
+    def test_incorrect_input(self):
         """
-        Test the docstring for the class inside the module.
+        Test 'Base' with incorrect input
         """
-        Base = getattr(module, 'Base', None)
-        self.assertIsNotNone(Base, "Class not found in the module.")
-        self.assertIsNotNone(Base.__doc__, "Class docstring is missing.")
-        self.assertNotEqual(len(Base.__doc__.strip()), 0, "Class docstring is empty.")
+        self.assertRaises(TypeError, Base, "string")
+        self.assertRaises(TypeError, Base, None)
+        with self.assertRaises(ValueError):
+            test = Base(-5)
 
-    def test_function_docstrings(self):
+    def test_correct_input(self):
         """
-        Test the docstrings for functions inside the class.
+        Test 'Base' with correct values
         """
-        Base = getattr(module, 'Base', None)
-        self.assertIsNotNone(Base, "Class not found in the module.")
+        test1 = Base(100)
+        self.assertEqual(test1.id, 100)
+        test2 = Base(13)
+        self.assertEqual(test2.id, 13)
 
-        # Replace 'save_to_file', 'from_json_string', etc., with the actual function names
-        functions_to_test = ['save_to_file', 'from_json_string']
+    def test_large_input(self):
+        """
+        Test 'Base' with a large input
+        """
+        test = Base(10**9)
+        self.assertEqual(test.id, 10**9)
 
-        for func_name in functions_to_test:
-            func = getattr(Base, func_name, None)
-            self.assertIsNotNone(func, f"Function '{func_name}' not found in the class.")
-            self.assertIsNotNone(func.__doc__, f"Docstring for function '{func_name}' is missing.")
-            self.assertNotEqual(len(func.__doc__.strip()), 0, f"Docstring for function '{func_name}' is empty.")
+    def test_string_input(self):
+        """
+        Test 'Base' with a string input
+        """
+        with self.assertRaises(TypeError):
+            test = Base("string")
 
-if __name__ == '__main__':
+    def test_none_input(self):
+        """
+        Test 'Base' with None as input
+        """
+        with self.assertRaises(TypeError):
+            test = Base(None)
+
+    def test_multiple_instances(self):
+        """
+        Test 'Base' with multiple instances
+        """
+        test1 = Base()
+        test2 = Base()
+        test3 = Base()
+        self.assertEqual(test1.id, 1)
+        self.assertEqual(test2.id, 2)
+        self.assertEqual(test3.id, 3)
+
+
+if __name__ == "__main__":
     unittest.main()
