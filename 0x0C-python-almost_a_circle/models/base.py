@@ -54,16 +54,16 @@ class Base:
             cls: The class (automatically provided by Python).
             list_objs (list): A list of objects to be saved to a file.
         """
-        for class_instance in list_objs:
-            filename = class_instance.__class__.__name__ + ".json"
-            with open(filename, 'w', encoding='utf-8') as out:
-                if list_objs is None:
-                    out.write([])
-                else:
-                    outlist = []
-                    for each_instance in list_objs:
-                        outlist.append(each_instance.to_dictionary())
-                    out.write(cls.to_json_string(outlist))
+        
+        filename = cls.__name__ + ".json"
+        with open(filename, 'w', encoding='utf-8') as out:
+            if list_objs is None:
+                out.write([])
+            else:
+                outlist = []
+                for each_instance in list_objs:
+                    outlist.append(each_instance.to_dictionary())
+                out.write(cls.to_json_string(outlist))
 
     @staticmethod
     def from_json_string(json_string):
