@@ -58,7 +58,7 @@ class Base:
             filename = class_instance.__class__.__name__ + ".json"
             with open(filename, 'w', encoding='utf-8') as out:
                 if list_objs is None:
-                    out.write('[]')
+                    out.write([])
                 else:
                     outlist = []
                     for each_instance in list_objs:
