@@ -93,7 +93,7 @@ class Base:
             cls: An instance of the class with attributes
             set from the dictionary.
         """
-        dummy = cls(1, 2, 3, 4, 5)
+        dummy = cls(1, 2)
         dummy.update(**dictionary)
         return dummy
 
