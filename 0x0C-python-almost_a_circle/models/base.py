@@ -93,7 +93,10 @@ class Base:
             cls: An instance of the class with attributes
             set from the dictionary.
         """
-        dummy = cls(1, 2)
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 2)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
 
