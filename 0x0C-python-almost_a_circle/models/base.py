@@ -7,6 +7,7 @@ Run "python3 -m unittest tests/test_models/test_base.py" for unittest
 """
 
 import json
+import csv
 from os.path import exists
 
 
@@ -117,3 +118,47 @@ class Base:
                 json_string = out.readline()
                 dict_list = cls.from_json_string(json_string)
                 return [cls.create(**each_dict) for each_dict in dict_list]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialize objects to a CSV file.
+
+        Args:
+            list_objs (list): A list of objects to be serialized.
+
+        Returns:
+            None
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as outcsv:
+            dict_obj = [each_obj.to_dictionary() for each_obj in list_objs]
+            for each_dict in dict_obj:
+                fieldnames = [key for key in each_dict]
+            file_csv = csv.DictWriter(outcsv, fieldnames=fieldnames)
+            file_csv.writeheader()
+            for each_dict in dict_obj:
+                file_csv.writerow(each_dict)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialize objects from a CSV file.
+
+        Returns:
+            list: A list of object instances created from the CSV data.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, newline='') as csv_file:
+            reader = csv.DictReader(csv_file)
+            instance_list = []
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                    instance = {field: int(row[field]) for field in fields}
+                if cls.__name__ == "Square":
+                    fields = ['id', 'size', 'x', 'y']
+                    instance = {field: int(row[field]) for field in fields}
+                instance_list.append(instance)
+
+        return [cls.create(**each_dict) for each_dict in instance_list]
