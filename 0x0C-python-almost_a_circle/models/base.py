@@ -133,8 +133,7 @@ class Base:
         filename = cls.__name__ + ".csv"
         with open(filename, 'w', newline='') as outcsv:
             dict_obj = [each_obj.to_dictionary() for each_obj in list_objs]
-            for each_dict in dict_obj:
-                fieldnames = [key for key in each_dict]
+            fieldnames = [key for each_dict in dict_obj for key in each_dict]
             file_csv = csv.DictWriter(outcsv, fieldnames=fieldnames)
             file_csv.writeheader()
             for each_dict in dict_obj:
