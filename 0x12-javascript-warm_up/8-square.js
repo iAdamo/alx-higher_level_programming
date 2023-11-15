@@ -12,6 +12,6 @@ if (!isNaN(size)) {
     }
     console.log(line);
   }
-} else if (process.argv[2] === undefined) {
+} else {
   console.log('Missing size');
 }
