@@ -9,7 +9,7 @@
 const arg = process.argv[2];
 const resultNumber = arg / 1; // could use parseInt(arg, 10);
 if (!isNaN(resultNumber)) {
-  console.log(`My number: ${resultNumber}`);
+  console.log(`My number: ${arg}`);
 } else {
   console.log('Not a number');
 }
