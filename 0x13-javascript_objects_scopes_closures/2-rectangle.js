@@ -2,7 +2,7 @@
 /**
  * A class `Rectangle` that defines a rectangle
  *
- * Run `./maintest/1-main.js` to test
+ * Run `./maintest/2-main.js` to test
  */
 class Rectangle {
   constructor (w, h) {
