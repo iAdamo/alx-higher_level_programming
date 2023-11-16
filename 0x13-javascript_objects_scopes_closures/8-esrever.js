@@ -2,6 +2,8 @@
 /**
  * function that returns the reversed version of a list
  * @param {*} list
+ * 
+ * Run `./maintest/8-main.js` to test
  */
 exports.esrever = function (list) {
   const reversedArray = [];
