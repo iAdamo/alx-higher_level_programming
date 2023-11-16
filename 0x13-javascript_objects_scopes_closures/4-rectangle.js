@@ -26,11 +26,12 @@ class Rectangle {
 
   // exchanges the width and the height of the rectangle
   rotate () {
+    const temp = this.width;
     this.width = this.height;
-    this.height = this.width;
+    this.height = temp;
   }
 
-  // exchanges the width and the height of the rectangle
+  // multiples the width and the height of the rectangle by 2
   double () {
     this.width = this.width * 2;
     this.height = this.height * 2;
