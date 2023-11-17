@@ -8,4 +8,4 @@ const file = require('fs');
 const contentA = file.readFileSync(fileA, 'utf8');
 const contentB = file.readFileSync(fileB, 'utf8');
 const fileC = args[4];
-file.writeFileSync(fileC, contentA +contentB);
+file.writeFileSync(fileC, contentA + contentB);
