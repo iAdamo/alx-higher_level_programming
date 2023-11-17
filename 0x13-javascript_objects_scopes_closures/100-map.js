@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const arr = require('./100-data').list;
+const arr = require('./maintest/100-data').list;
 
 const newArr = arr.map((x, index) => x * index++);
 
