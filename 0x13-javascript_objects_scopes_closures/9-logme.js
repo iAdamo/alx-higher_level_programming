@@ -2,7 +2,7 @@
 /**
  * prints the number of arguments already printed and the new argument value
  * @param {*} item
- * 
+ *
  * Run `./maintest/9-main.js` to test
  */
 exports.logMe = function logMe (item) {

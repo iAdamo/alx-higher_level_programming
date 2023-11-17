@@ -4,7 +4,7 @@
  * @param {*} list
  * @param {*} searchElement
  * @returns count of occurence
- * 
+ *
  * Run `./maintest/7-main.js` to test
  */
 exports.nbOccurences = function (list, searchElement) {
