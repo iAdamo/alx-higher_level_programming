@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const dicts = require('./maintest/101-data').dict;
+const dicts = require('./101-data').dict; // modify the path to ./maintest/101-data to run
 
 const newDict = {};
 
