@@ -10,15 +10,12 @@
 Use `source maintest/0-select_states.sql` to load into the MySQL Server
 Execute by ./0-select_states.py root root hbtn_0e_0_usa
 """
-# block imports for main only
 if __name__ != "__main__":
     exit()
 
-# Import necessary modules
 import MySQLdb
 from sys import argv
 
-# Connects to a MySQL server running on localhost at port 3306.
 db = MySQLdb.connect(
     host='localhost',
     user=argv[1],
@@ -27,19 +24,14 @@ db = MySQLdb.connect(
     port=3306
 )
 
-# Creates a cursor handle
 ptr = db.cursor()
 
-# Executes the SQL query
 ptr.execute('SELECT * FROM states ORDER BY id ASC')
 
-# Fetches all rows from the result of the query
 table = ptr.fetchall()
 
-# Prints the rows
 for row in table:
     print(row)
 
-# Clean up
 ptr.close()
 db.close()
