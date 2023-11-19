@@ -1,14 +1,7 @@
 #!/usr/bin/python3
 """script that lists all states from the database hbtn_0e_0_usa
-    The script takes 3 arguments: mysql username, mysql password and database
-    name (no argument validation needed)
-    Use the module MySQLdb (import MySQLdb)
-    Connect to a MySQL server running on localhost at port 3306
-    Results must be sorted in ascending order by states.id
-    Results must be displayed as they are in the example below
-    The code should not be executed when imported
 Use `source maintest/0-select_states.sql` to load into the MySQL Server
-Execute by ./0-select_states.py root root hbtn_0e_0_usa
+Execute by ./0-select_states.py username password database_name
 """
 # block imports for main only
 if __name__ != "__main__":
