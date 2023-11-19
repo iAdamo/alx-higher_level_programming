@@ -3,38 +3,21 @@
 Use (source maintest/0-select_states.sql) to load into the MySQL Server
 Execute by (./0-select_states.py username password database_name)
 """
+if __name__ == "__main__":
+    import MySQLdb
+    from sys import argv
 
-
-# make sure the code is not executed when imported
-if __name__ != "__main__":
-    exit()
-
-# Import necessary modules
-import MySQLdb
-from sys import argv
-
-# Connects to a MySQL server running on localhost at port 3306.
-db = MySQLdb.connect(
-    host='localhost',
-    user=argv[1],
-    passwd=argv[2],
-    db=argv[3],
-    port=3306
-)
-
-# Creates a cursor handle
-ptr = db.cursor()
-
-# Executes the SQL query
-ptr.execute('SELECT * FROM states ORDER BY id ASC')
-
-# Fetches all rows from the result of the query
-rows = ptr.fetchall()
-
-# Prints the rows
-for row in rows:
-    print(row)
-
-# Clean up
-ptr.close()
-db.close()
+    db = MySQLdb.connect(
+        host='localhost',
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3],
+        port=3306
+    )
+    ptr = db.cursor()
+    ptr.execute('SELECT * FROM states ORDER BY id ASC')
+    rows = ptr.fetchall()
+    for row in rows:
+        print(row)
+    ptr.close()
+    db.close()
