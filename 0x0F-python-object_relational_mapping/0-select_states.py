@@ -3,13 +3,13 @@
 Use `source maintest/0-select_states.sql` to load into the MySQL Server
 Execute by ./0-select_states.py username password database_name
 """
-# make sure the code is not executed when imported
-if __name__ != "__main__":
-    exit()
-
 # Import necessary modules
 import MySQLdb
 from sys import argv
+
+# make sure the code is not executed when imported
+if __name__ == "__main__":
+    exit()
 
 # Connects to a MySQL server running on localhost at port 3306.
 db = MySQLdb.connect(
