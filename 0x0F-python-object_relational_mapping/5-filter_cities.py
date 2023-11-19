@@ -12,6 +12,12 @@ if __name__ == "__main__":
     import MySQLdb
     from sys import argv
 
+    # Check if the number of arguments is correct
+    if len(argv) != 5:
+        print("Usage: ./5-filter_cities.py <username> <password> <database> "
+              "<state name>")
+        exit(1)
+
     # Establish a connection to the MySQL database
     db = MySQLdb.connect(
         host='localhost',
