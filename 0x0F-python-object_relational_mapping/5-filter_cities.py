@@ -17,35 +17,43 @@ if __name__ == "__main__":
         print("Usage: ./5-filter_cities.py <username> <password> <database> "
               "<state name>")
         exit(1)
+    try:
+        # Establish a connection to the MySQL database
+        db = MySQLdb.connect(
+            host='localhost',
+            port=3306,
+            user=argv[1],  # username from command line argument
+            passwd=argv[2],  # password from command line argument
+            db=argv[3]  # database name from command line argument
+        )
 
-    # Establish a connection to the MySQL database
-    db = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=argv[1],  # username from command line argument
-        passwd=argv[2],  # password from command line argument
-        db=argv[3]  # database name from command line argument
-    )
+        # Create a cursor object to interact with the database
+        ptr = db.cursor()
 
-    # Create a cursor object to interact with the database
-    ptr = db.cursor()
+        # Execute a SQL query to fetch cities from a specific state
+        ptr.execute("SELECT cities.id, cities.name, states.name FROM cities "
+                    "INNER JOIN states ON cities.state_id = states.id "
+                    "WHERE states.name LIKE BINARY %s "
+                    "ORDER BY cities.id ASC", (argv[4],))
 
-    # Execute a SQL query to fetch cities from a specific state
-    ptr.execute("SELECT cities.id, cities.name, states.name FROM cities "
-                "INNER JOIN states ON cities.state_id = states.id "
-                "WHERE states.name LIKE BINARY %s "
-                "ORDER BY cities.id ASC", (argv[4],))  # state name from CL arg
+        # Fetch all rows returned by the query
+        rows = ptr.fetchall()
 
-    # Fetch all rows returned by the query
-    rows = ptr.fetchall()
+        # Loop through each row
+        for row in rows:
+            # Print the city name (second element in the row)
+            # If it's the last row, end with a newline,otherwise end with comma
+            # and space
+            print(row[1], end=", " if row != rows[-1] else "")
+        print()
+    except Exception as err:
+        print("MySQL Error {}: {}".format(err.args[0], err.args[1]))
+        exit(1)
 
-    # Loop through each row
-    for row in rows:
-        # Print the city name (second element in the row)
-        # If it's the last row, end with a newline, otherwise end with a comma
-        # and space
-        print(row[1], end=", " if row != rows[-1] else "\n")
-
-    # Close the cursor and the database connection
-    ptr.close()
-    db.close()
+    finally:
+        if 'ptr' in locals() or 'ptr' in globals():
+            # Close the cursor
+            ptr.close()
+        if 'db' in locals() or 'db' in globals():
+            # Close the connection to the database
+            db.close()
