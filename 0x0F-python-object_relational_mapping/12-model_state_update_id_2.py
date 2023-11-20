@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script adds the State object “Louisiana” to the database hbtn_0e_6_usa
+This script changes the name of a State object from the database hbtn_0e_6_usa
 It takes 3 arguments: mysql username, mysql password, and database name.
 """
 
@@ -36,15 +36,10 @@ if __name__ == "__main__":
     # Create a new session for database interaction
     session = Session(engine)
 
-    # Create a new State object with the name "Louisiana" and add it to the
-    # session
-    new_state = State(name="Louisiana")
-    session.add(new_state)
-    session.commit()
+    state_to_update = session.query(State).get(2)
 
-    # Query the State table for the newly added state and print its id
-    states_t = session.query(State).filter_by(name="Louisiana").first()
-    print(f"{states_t.id}")
+    if state_to_update:
+        state_to_update.name = "New Mexico"
+        session.commit()
 
-    # Close the session to free up resources
     session.close()
