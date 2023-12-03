@@ -68,5 +68,17 @@ guillaume@ubuntu:~/0x10$ ./3-methods.sh 0.0.0.0:5000/route_4
 OPTIONS, HEAD, PUT
 guillaume@ubuntu:~/0x10$ 
 ```
+#### **4. cURL headers**
+
+Write a Bash script that takes in a URL as an argument, sends a GET request to the URL, and displays the body of the response
+
+- A header variable X-School-User-Id must be sent with the value 98
+- You have to use curl
+Please test your script in the sandbox provided, using the web server running on port 5000
+```
+guillaume@ubuntu:~/0x10$ ./4-header.sh 0.0.0.0:5000/route_5 ; echo ""
+Hello School!
+guillaume@ubuntu:~/0x10$
+```
 
 ##### Author: **`Adam Sanusi Babatunde`**
