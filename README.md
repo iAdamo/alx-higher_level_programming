@@ -24,5 +24,6 @@
 - [**JavaScript - Objects, Scopes and Closures**](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x13-javascript_objects_scopes_closures)
 - [**Python - Object-relational mapping**](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x0F-python-object_relational_mapping)
 - [**Python - Network #0**](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x10-python-network_0)
+- [**Python - Network #1**](https://github.com/iAdamo/alx-higher_level_programming/tree/main/0x11-python-network_1)
 
 #### Author: **`Adam Sanusi Babatunde`**
