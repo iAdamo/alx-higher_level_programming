@@ -5,7 +5,6 @@ http://0.0.0.0:5000/search_user with the letter as a parameter
 
 if __name__ == "__main__":
     import requests
-    from requests.exceptions import JSONDecodeError
     from sys import argv
 
     url = 'http://0.0.0.0:5000/search_user'
@@ -17,5 +16,5 @@ if __name__ == "__main__":
             print(f"[{response.get('id')}] {response.get('name')}")
         else:
             print("No result")
-    except JSONDecodeError:
+    except ValueError:
         print("Not a valid JSON")
