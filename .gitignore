@@ -1,3 +1,4 @@
+.gitignore
 *main.c
 *main.py
 __pycache__
@@ -10,3 +11,5 @@ include
 lib64
 pyvenv.cfg
 *gitignore
+package*
+node_modules*
