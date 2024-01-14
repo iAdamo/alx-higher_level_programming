@@ -6,6 +6,8 @@
  * Your script must work when it is imported from the <head> tag
  */
 
-$.get('https://hellosalut.stefanbohacek.dev/?lang=fr', (data) => {
-  $('DIV#hello').text(data.hello);
+$(document).ready(() => {
+  $.get('https://hellosalut.stefanbohacek.dev/?lang=fr', (data) => {
+    $('DIV#hello').text(data.hello);
+  });
 });
